@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Form from "./Form";
 
 const calc = (x, y) => [
-  -(y - window.innerHeight / 2) / 20,
-  (x - window.innerWidth / 2) / 20,
+  -(y - window.innerHeight / 2) / 30,
+  (x - window.innerWidth / 2) / 30,
   1.1,
 ];
 const trans = (x, y, s) =>
@@ -24,11 +24,7 @@ const Hero = () => {
           <h2>FrontEndDeveloper</h2>
           <Form />
         </Article>
-        <ImgPlaceholder
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
-        >
+        <ImgPlaceholder initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <animated.img
             src="./vertical-card-img.png"
             alt="business card"
