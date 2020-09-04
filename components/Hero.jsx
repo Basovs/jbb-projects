@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
+import { motion } from "framer-motion";
 import Form from "./Form";
 
 const calc = (x, y) => [
@@ -23,7 +24,11 @@ const Hero = () => {
           <h2>FrontEndDeveloper</h2>
           <Form />
         </Article>
-        <ImgPlaceholder>
+        <ImgPlaceholder
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
+        >
           <animated.img
             src="./vertical-card-img.png"
             alt="business card"
@@ -65,6 +70,6 @@ const Article = styled.article`
     margin: 5px 0 30px;
   }
 `;
-const ImgPlaceholder = styled.div`
+const ImgPlaceholder = styled(motion.div)`
   block-size: 628px;
 `;
