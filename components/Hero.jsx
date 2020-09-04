@@ -26,7 +26,7 @@ const Hero = () => {
         </Article>
         <ImgPlaceholder initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <animated.img
-            src="./vertical-card-img.png"
+            src="./vertical-card-img@2x.png"
             alt="business card"
             onMouseMove={({ clientX: x, clientY: y }) =>
               set({ xys: calc(x, y) })
@@ -68,4 +68,10 @@ const Article = styled.article`
 `;
 const ImgPlaceholder = styled(motion.div)`
   block-size: 628px;
+  img {
+    inline-size: 100%;
+    block-size: 628px;
+    inline-size: 314px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
+  }
 `;
