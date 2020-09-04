@@ -8,7 +8,7 @@ const calc = (x, y) => [
   1.1,
 ];
 const trans = (x, y, s) =>
-  `perspective(1000px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+  `perspective(1000px) rotateX(${-x}deg) rotateY(${-y}deg) scale(${s})`;
 
 const Hero = () => {
   const [props, set] = useSpring(() => ({
@@ -23,13 +23,17 @@ const Hero = () => {
           <h2>FrontEndDeveloper</h2>
           <Form />
         </Article>
-        <animated.img
-          src="./vertical-card-img.png"
-          alt="business card"
-          onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-          onMouseLeave={() => set({ xys: [0, 0, 1] })}
-          style={{ transform: props.xys.interpolate(trans) }}
-        />
+        <ImgPlaceholder>
+          <animated.img
+            src="./vertical-card-img.png"
+            alt="business card"
+            onMouseMove={({ clientX: x, clientY: y }) =>
+              set({ xys: calc(x, y) })
+            }
+            onMouseLeave={() => set({ xys: [0, 0, 1] })}
+            style={{ transform: props.xys.interpolate(trans) }}
+          />
+        </ImgPlaceholder>
       </Wrapper>
     </Section>
   );
@@ -42,7 +46,7 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   background-color: #030303;
-  padding: 51px 0;
+  padding: 50px 0;
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -60,4 +64,7 @@ const Article = styled.article`
     font-size: 18px;
     margin: 5px 0 30px;
   }
+`;
+const ImgPlaceholder = styled.div`
+  block-size: 628px;
 `;
