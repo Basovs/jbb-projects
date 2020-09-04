@@ -72,6 +72,5 @@ const ImgPlaceholder = styled(motion.div)`
     inline-size: 100%;
     block-size: 628px;
     inline-size: 314px;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4);
   }
 `;
