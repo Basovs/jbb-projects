@@ -42,7 +42,7 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   background-color: #030303;
-  padding: 50px 0;
+  padding: 51px 0;
 `;
 const Wrapper = styled.div`
   display: flex;
