@@ -42,7 +42,7 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-          <img
+          <animated.img
             src="./vertical-card-img@2x.png"
             alt="business card"
             onMouseMove={({ clientX: x, clientY: y }) =>
