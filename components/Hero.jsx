@@ -3,6 +3,19 @@ import { useSpring, animated } from "react-spring";
 import { motion } from "framer-motion";
 import Form from "./Form";
 
+const articleVariants = {
+  initial: { opacity: 0, y: -200 },
+  animate: { opacity: 1, y: 0, transition: { duration: 1.3 } },
+};
+const imgVariants = {
+  initial: { opacity: 0, y: 200 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.3 },
+  },
+};
+
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 30,
   (x - window.innerWidth / 2) / 30,
@@ -19,13 +32,17 @@ const Hero = () => {
   return (
     <Section>
       <Wrapper>
-        <Article>
+        <Article variants={articleVariants} initial="initial" animate="animate">
           <h1>Janis Basis Basovs</h1>
           <h2>FrontEndDeveloper</h2>
           <Form />
         </Article>
-        <ImgPlaceholder initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <animated.img
+        <ImgPlaceholder
+          variants={imgVariants}
+          initial="initial"
+          animate="animate"
+        >
+          <img
             src="./vertical-card-img@2x.png"
             alt="business card"
             onMouseMove={({ clientX: x, clientY: y }) =>
@@ -55,7 +72,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Article = styled.article`
+const Article = styled(motion.article)`
   color: #fff;
   h1 {
     line-height: 1;
